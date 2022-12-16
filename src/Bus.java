@@ -1,10 +1,20 @@
 public class Bus extends Transport implements  Competing{
-    public Bus(String brand, String model, double fuelPercentage) {
+    private BusPlace plase;
+    public Bus(String brand, String model, double fuelPercentage,BusPlace plase) {
         super(brand, model, fuelPercentage);
+        this.plase = plase;
+    }
+
+    public BusPlace getPlase() {
+        return plase;
+    }
+
+    public void setPlase(BusPlace plase) {
+        this.plase = plase;
     }
 
     public void  print(){
-        System.out.println(super.toString());
+        System.out.println(super.toString()+" "+getPlase());
     }
     @Override
     public String getPitStop() {

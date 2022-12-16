@@ -1,17 +1,22 @@
 public class EzCar  extends Transport implements Competing{
-
-
-
-
-    public EzCar(String brand, String model, double fuelPercentage) {
+    public EzCar(String brand, String model, double fuelPercentage,Body body) {
         super(brand, model, fuelPercentage);
+        this.body = body;
+
+    }
+    private Body body;
+
+    public void setBody(Body body) {
+        this.body = body;
+    }
+    public String getBody(){
+        return body.toString();
     }
 
-
-
     public void  print(){
-        System.out.println(super.toString());
+        System.out.println(super.toString() +" "+ getBody());
    }
+
 
     @Override
     public String getPitStop() {

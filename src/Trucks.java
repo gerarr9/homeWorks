@@ -1,9 +1,21 @@
 public class Trucks extends Transport implements Competing{
-    public Trucks(String brand, String model, double fuelPercentage) {
+    public Trucks(String brand, String model, double fuelPercentage,BigCar lift ){
         super(brand, model, fuelPercentage);
+        this.lift = lift;
     }
+
+    private  BigCar lift;
+
+    public void setLift(BigCar lift) {
+        this.lift = lift;
+    }
+
+    public BigCar getLift() {
+        return lift;
+    }
+
     public void  print(){
-        System.out.println(super.toString());
+        System.out.println(super.toString()+" "+ getLift());
     }
     @Override
     public String getPitStop() {
