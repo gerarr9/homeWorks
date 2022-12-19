@@ -38,6 +38,16 @@ public class Trucks extends Transport implements Competing{
         return "Имеет лицензию класса B";
     }
 
+    @Override
+    public boolean servise() {
+        return false;
+    }
+
+    @Override
+    public void fix() {
+
+    }
+
 
 }
 

@@ -1,16 +1,37 @@
 import java.security.Permission;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         EzCar lada = new EzCar("Lada","D-31",89,Body.TRUCK);
+        Driver oleg = new Driver("Lada","D-21",39,"Oleg Oleg Oleg","B","3 года");
+        Sponsor loco = new Sponsor("Локо", 1_500_000);
+        Mechanic<EzCar> sanya = new Mechanic("Саньков Саня Санявич","ООО.Саня.Интертеймонт");
+        lada.addDriver(oleg);
+        lada.addMehanic(sanya);
+        lada.addSponsor(loco);
         lada.print();
         System.out.println("Пит стоп - "+ lada.getPitStop());
         System.out.println("Лучшее время "+lada.getBestTime() +" секунд");
         System.out.println("Максимальная скорость "+lada.getMaxSpeed() +" км/c");
         EzCar slada = new EzCar("sLada","D-21",39,Body.TRUCK);
         slada.setBody(Body.HATHBACK);
+        Driver oleg1 = new Driver("Lada","D-21",39,"Oleg Oleg Oleg","B","3 года");
+        Sponsor loco1 = new Sponsor("Локо", 1_500_000);
+        Mechanic sanya1 = new Mechanic("Саньков Саня Санявич","ООО.Саня.Интертеймонт");
+        lada.addDriver(oleg1);
+        lada.addMehanic(sanya1);
+        lada.addSponsor(loco1);
+        lada.print();
         slada.print();
         EzCar dlada = new EzCar("dLada","D-11",19,Body.TRUCK);
+        Driver oleg2 = new Driver("Lada","D-21",39,"Oleg Oleg Oleg","B","3 года");
+        Sponsor loco2 = new Sponsor("Локо", 1_500_000);
+        Mechanic sanya2 = new Mechanic("Саньков Саня Санявич","ООО.Саня.Интертеймонт");
+        lada.addDriver(oleg2);
+        lada.addMehanic(sanya2);
+        lada.addSponsor(loco2);
+        lada.print();
         dlada.print();
         Trucks gen = new Trucks("Mraza","T-11",12,BigCar.N1);
         gen.print();
@@ -30,12 +51,23 @@ public class Main {
         gogo.print();
         Bus gogo2 = new Bus("Sraza3","T-13",31,BusPlace.LARGE);
         gogo.print();
-       Driver oleg = new Driver("Lada","D-21",39,"Oleg Oleg Oleg","B","3 года");
-       oleg.go();
+
+        List<Transport> transports = List.of(lada,slada,dlada);
+        for (Transport transport: transports){
+            printInfo(transport);
+        }
 
 
-
-
-
+        }
+    private static  void printInfo(Transport transport){
+        System.out.println("Информация по автомобилю "+transport.getBrand()+ " "+transport.getModel());
+        System.out.println("Водители ");
+        for (Mechanic mechanic : transport.getMechanics()){
+            System.out.println(mechanic.getFullName());
+        }
+        System.out.println("Спосоры ");
+        for (Sponsor sponsor : transport.getSponsors()){
+            System.out.println( sponsor.getName());
+        }
     }
 }

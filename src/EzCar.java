@@ -38,4 +38,14 @@ public class EzCar  extends Transport implements Competing{
     public String getDrivingLicense() {
         return "Имеет лицензию класса B";
     }
+
+    @Override
+    public boolean servise() {
+        return false;
+    }
+
+    @Override
+    public void fix() {
+
+    }
 }

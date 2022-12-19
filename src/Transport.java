@@ -1,14 +1,43 @@
-public  class Transport implements Competing {
-    private   String brand;
-    private  String model;
-    private  double fuelPercentage;
+import java.util.ArrayList;
+import java.util.List;
 
+public abstract class Transport implements Competing {
+    private String brand;
+    private String model;
+    private double fuelPercentage;
+    private List<Driver> drivers = new ArrayList<>();
+    private List<Sponsor> sponsors = new ArrayList<>();
+    private List<Mechanic> mechanics = new ArrayList<>();
 
 
     public Transport(String brand, String model, double fuelPercentage) {
         this.brand = brand;
         this.model = model;
         this.fuelPercentage = fuelPercentage;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
+    }
+
+    public void addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
+    }
+
+    public void addMehanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
     }
 
     public String getBrand() {
@@ -34,10 +63,12 @@ public  class Transport implements Competing {
     public void setFuelPercentage(double fuelPercentage) {
         this.fuelPercentage = fuelPercentage;
     }
-    public void start(){
+
+    public void start() {
         System.out.println("Начал движение");
     }
-    public  void  end(){
+
+    public void end() {
         System.out.println("Закончил движение");
     }
 
@@ -45,9 +76,9 @@ public  class Transport implements Competing {
     public String toString() {
         return
                 "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", fuelPercentage=" + fuelPercentage +
-                '}';
+                        ", model='" + model + '\'' +
+                        ", fuelPercentage=" + fuelPercentage +
+                        '}';
     }
 
     @Override
@@ -69,6 +100,10 @@ public  class Transport implements Competing {
     public String getDrivingLicense() {
         return null;
     }
+
+    public abstract boolean servise();
+
+    public abstract void fix();
 
 
 }

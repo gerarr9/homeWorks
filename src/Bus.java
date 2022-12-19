@@ -31,4 +31,14 @@ public class Bus extends Transport implements  Competing{
     public double getMaxSpeed() {
         return Math.random()*100;
     }
+
+    @Override
+    public boolean servise() {
+        return false;
+    }
+
+    @Override
+    public void fix() {
+
+    }
 }

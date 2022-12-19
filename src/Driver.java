@@ -27,6 +27,16 @@ public class Driver extends  Transport  {
         return drivingLicense;
     }
 
+    @Override
+    public boolean servise() {
+        return true;
+    }
+
+    @Override
+    public void fix() {
+
+    }
+
     public void setDrivingLicense(String drivingLicense) {
         this.drivingLicense = drivingLicense;
     }
